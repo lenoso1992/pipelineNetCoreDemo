@@ -19,3 +19,17 @@ steps:
 - script: dotnet test
   displayName: 'dotnet test'
 - bash: echo "Testing!..."
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/*.csproj'
+    arguments: 'code coverage'
+    testRunTitle: 'TitleTest'
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Write your commands here
+      echo $(buildConfiguration)
+      echo Hello world)
